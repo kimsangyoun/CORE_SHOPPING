@@ -5,6 +5,12 @@ namespace CORE_SHOPPING.Models
 {
     public partial class Product
     {
+        public Product()
+        {
+            OrderHasPdt = new HashSet<OrderHasPdt>();
+            ProductDetail = new HashSet<ProductDetail>();
+        }
+
         public int PdtNum { get; set; }
         public int PdtBrand { get; set; }
         public string PdtName { get; set; }
@@ -14,5 +20,7 @@ namespace CORE_SHOPPING.Models
         public int? PdtUsed { get; set; }
 
         public Brand PdtBrandNavigation { get; set; }
+        public ICollection<OrderHasPdt> OrderHasPdt { get; set; }
+        public ICollection<ProductDetail> ProductDetail { get; set; }
     }
 }
